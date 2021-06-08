@@ -24,10 +24,15 @@ class WordListFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var _binding: FragmentWordListBinding? = null
     private val binding get() = _binding!!
-    private lateinit var recyclerView:RecyclerView
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var letterId: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        arguments?.let {
+            letterId = it.getString(LETTER).toString()
+        }
     }
 
     override fun onCreateView(
@@ -44,7 +49,7 @@ class WordListFragment : Fragment() {
         // Retrieve the LETTER from the Intent extras
         // intent.extras.getString returns String? (String or null)
         // so toString() guarantees that the value will be a String
-        val letterId = activity?.intent?.extras?.getString(LETTER).toString()
+//        val letterId = activity?.intent?.extras?.getString(LETTER).toString()
 
         val recyclerView = binding.recyclerView
         recyclerView.layoutManager = LinearLayoutManager(requireContext())

@@ -23,7 +23,7 @@ class LetterListFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var _binding: FragmentLetterListBinding? = null
     private val binding get() = _binding!!
-    private lateinit var recyclerView:RecyclerView
+    private lateinit var recyclerView: RecyclerView
     private var isLinearLayoutManager = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -59,7 +59,7 @@ class LetterListFragment : Fragment() {
     }
 
     private fun chooseLayout() {
-        if (isLinearLayoutManager ) {
+        if (isLinearLayoutManager) {
             recyclerView.layoutManager = LinearLayoutManager(context)
         } else {
             recyclerView.layoutManager = GridLayoutManager(context, 4)
@@ -72,7 +72,7 @@ class LetterListFragment : Fragment() {
             return
         }
         menuItem.icon =
-            if (isLinearLayoutManager ) {
+            if (isLinearLayoutManager) {
                 ContextCompat.getDrawable(this.requireContext(), R.drawable.ic_linear_layout)
             } else {
                 ContextCompat.getDrawable(this.requireContext(), R.drawable.ic_grid_layout)
